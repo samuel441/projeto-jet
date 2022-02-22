@@ -1,0 +1,23 @@
+<div class="card border-primary" style="margin-top: 5px;">
+    <div class="card-header bg-primary">
+        <button class="btn btn-light" [routerLink]="['/loja/listar-produtos/']">Voltar</button>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <img src="{{ 'data:image/png;base64,' + produto?.img }}" class="card-img-top" alt="...">
+            </div>
+            <div class="col-6">
+                <h3 class="card-text">{{produto?.nome}}</h3>
+                <br>
+                <h3 class="card-text">{{produto.preco == null ? '' : produto.preco.toString().replace(',','.') | currency:'BRL'}}</h3>
+                <br>
+                <div class="shadow-none p-3 mb-5 bg-light rounded">
+                    <p>Descrição :</p>
+                    <hr>
+                    <p class="card-text">{{produto?.descricao}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

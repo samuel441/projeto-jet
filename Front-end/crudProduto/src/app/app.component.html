@@ -1,0 +1,19 @@
+<div class="container-sm">
+    <div class="row justify-content-center" style="margin-top: 5%;">
+        <div class="col-1">
+            <ul class="nav flex-column list-group">
+                <li class="nav-item list-group-item">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['loja/listar-produtos/']">Loja</a>
+                </li>
+                <li class="nav-item list-group-item">
+                    <a class="nav-link" [routerLink]="['produto/lista/']">Adm</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-8">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+

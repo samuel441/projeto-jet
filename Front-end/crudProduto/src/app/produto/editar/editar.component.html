@@ -1,0 +1,95 @@
+<div class="card border-primary">
+    <div class="card-header bg-primary">
+        <h3 style="color: white;">Editar Produto</h3>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="card-body">
+            <input type="hidden" formControlName="id" />
+
+
+            <div class="row">
+
+                <div class="col-6">
+                    <div class="row ">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="nome">Nome do produto:</label>
+                                <input formControlName="nome" id="nome" type="text" class="form-control"
+                                    [ngClass]="{ 'is-invalid': f['nome'].errors }" />
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="estoque">Estoque</label>
+                                <input formControlName="estoque" id="estoque" type="number" class="form-control"
+                                    [ngClass]="{ 'is-invalid': f['estoque'].errors }">
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="preco">Preço</label>
+
+                                <input currencyMask formControlName="preco" id="preco" type="text" class="form-control"
+                                    [ngClass]="{ 'is-invalid': f['preco'].errors }">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="descricao">Descricao</label>
+                                <textarea formControlName="descricao" id="descricao" type="text" class="form-control"
+                                    [ngClass]="{ 'is-invalid': f['descricao'].errors }"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="img">Imagem atual</label>
+                                <br />
+                                <td> <img src="{{imagemSrc}}" alt="Red dot" style="height: 150px; width:400px" /></td>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="file">Nova imagem:</label>
+                                <input type="file" class="form-control" (change)="onFileChange($event)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="status" formControlName="status" checked>
+                            <label class="form-check-label" for="status">Ativo</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row justify-content-end">
+                <div class="col-1">
+                    <button class="btn btn-primary" [routerLink]="['/produto/lista/']">Voltar</button>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-success" type="submit" [disabled]="!form.valid">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,54 @@
+<div class="card border-primary">
+    <div class="card-header bg-primary">
+        <h3 style="color:white;">Produtos</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="row justify-content-end">
+            <div class="col-3">
+                <button class="btn btn-primary" type="button" [routerLink]="['/produto/adicionar/']">Novo
+                    Produto</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <table class="table table-striped">
+                <thead class="table-light">
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Estoque</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let produto of produtos">
+                        <td> <img src="data:image/png;base64,{{produto.img}}" alt="Red dot"
+                                style="height: 50px; width:50px" /></td>
+                        <td>{{produto.nome}}</td>
+                        <td>{{produto.descricao}}</td>
+                        <td>{{produto.preco.replace(',','.') | currency:'BRL':true}}</td>
+                        <td>{{produto.estoque}}</td>
+                        <td>{{produto.status ? 'Ativo':'Inativo'}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Ação
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item"[routerLink]="['/produto/editar/', produto.id]">Editar</a></li>
+                                  <li><a class="dropdown-item"[routerLink]="['/loja/detalhes-produto/', produto.id]">Visualizar</a></li>
+                                  <li> <a class="dropdown-item" (click)="excluir(produto.id)">Excluir</a></li>                             
+                                </ul>
+                              </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
