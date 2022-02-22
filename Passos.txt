@@ -1,11 +1,13 @@
 
 
 1: criar banco de dados "CrudProduto" no "localdb", se caso criar em outra instância deve alterar a connection string na API.
+ 
+-BACK-END em .NET 6 
 
 2.0: BACK-END => existe uma MIgrations "Initial" execute o comando "Update-Dabase"  para criar tabela no BD
                                     ======
                                       OU 
-									======
+BD-SQL SERVER									======
 2.0 BANCO DE DADOS => execute o script que contém migrations e uma carga inicial de produtos
 
 USE [CrudProduto]
